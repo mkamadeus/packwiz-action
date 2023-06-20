@@ -1,0 +1,24 @@
+# action.yml
+name: 'Packwiz'
+description: 'Action for building packwiz'
+inputs:
+  path:  # id of input
+    description: 'Path of the modpack containing the packwiz.toml'
+    required: false
+    default: '/'
+  type:
+    description: 'Type of the modpack'
+    required: false
+    default: 'modrinth'
+  filename:
+    description: 'Name of the output file'
+    required: true
+outputs:
+  filename:
+    description: 'Name of the output file'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - 'modrinth'
+    - 'export'
